@@ -82,7 +82,7 @@
 
             </a>
 
-            <a href="#"
+            <a href="{{ route('estudiante.asistente') }}"
                class="flex items-center gap-3 px-5 py-4 rounded-2xl mb-3 hover:bg-[#7B7F8A] transition duration-300">
 
                 <span class="text-2xl">🤖</span>

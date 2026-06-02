@@ -6,6 +6,8 @@ use App\Http\Controllers\EstudianteController;
 use App\Http\Controllers\DocenteController;
 use App\Http\Controllers\TareaController;
 use App\Http\Controllers\EntregaController;
+use App\Http\Controllers\AIController;
+use Illuminate\Support\Facades\Http;
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,6 +31,12 @@ Route::middleware(['auth', 'role:estudiante'])->group(function () {
 
     Route::get('/estudiante/tareas', [EstudianteController::class, 'tareas'])
     ->name('estudiante.tareas');
+
+    Route::get('/estudiante/asistente', [AIController::class, 'index'])
+        ->name('estudiante.asistente');
+
+    Route::post('/ia/preguntar', [AIController::class, 'preguntar'])
+        ->name('ia.preguntar');
 
 });
 
