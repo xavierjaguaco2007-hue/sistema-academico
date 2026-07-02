@@ -1,44 +1,203 @@
-<x-app-layout>
+@extends('layouts.docente')
 
-    <div class="p-6">
+@section('content')
 
-        <h1 class="text-3xl font-bold mb-6">
-            Crear Tarea
-        </h1>
+<!-- HEADER -->
 
-        <form method="POST" action="{{ route('tareas.store') }}">
+<div class="mb-10">
 
-            @csrf
+<p
+class="
+uppercase
+tracking-[6px]
+text-sm
+subtitle">
 
-            <div class="mb-4">
-                <label>Título</label>
+Docente
 
-                <input type="text"
-                       name="titulo"
-                       class="w-full border rounded p-2">
-            </div>
+</p>
 
-            <div class="mb-4">
-                <label>Descripción</label>
+<h1
+class="
+text-5xl
+font-black
+title
+mt-2">
 
-                <textarea name="descripcion"
-                          class="w-full border rounded p-2"></textarea>
-            </div>
+Crear Tarea
 
-            <div class="mb-4">
-                <label>Fecha entrega</label>
+</h1>
 
-                <input type="date"
-                       name="fecha_entrega"
-                       class="w-full border rounded p-2">
-            </div>
+<p
+class="
+subtitle
+mt-3">
 
-            <button class="bg-blue-500 text-white px-4 py-2 rounded">
-                Guardar
-            </button>
+Publica una nueva actividad académica.
 
-        </form>
+</p>
 
-    </div>
+</div>
 
-</x-app-layout>
+<!-- FORM -->
+
+<div
+class="
+card
+max-w-5xl
+p-10">
+
+<form
+method="POST"
+action="{{ route('tareas.store') }}">
+
+@csrf
+
+<!-- TÍTULO -->
+
+<div class="mb-8">
+
+<label
+class="
+block
+title
+font-semibold
+mb-3">
+
+Título
+
+</label>
+
+<input
+type="text"
+name="titulo"
+
+class="
+w-full
+h-[60px]
+bg-white/50
+border
+border-white/40
+px-5
+outline-none
+focus:border-[#67B4B0]
+focus:ring-0"
+
+placeholder="Ej. Investigación sobre XML"
+
+required>
+
+</div>
+
+<!-- DESCRIPCIÓN -->
+
+<div class="mb-8">
+
+<label
+class="
+block
+title
+font-semibold
+mb-3">
+
+Descripción
+
+</label>
+
+<textarea
+name="descripcion"
+
+rows="8"
+
+class="
+w-full
+bg-white/50
+border
+border-white/40
+p-5
+resize-none
+outline-none
+focus:border-[#67B4B0]
+focus:ring-0"
+
+placeholder="Describe la actividad..."
+
+required></textarea>
+
+</div>
+
+<!-- FECHA -->
+
+<div class="mb-10">
+
+<label
+class="
+block
+title
+font-semibold
+mb-3">
+
+Fecha de entrega
+
+</label>
+
+<input
+type="date"
+name="fecha_entrega"
+
+class="
+w-full
+h-[60px]
+bg-white/50
+border
+border-white/40
+px-5
+outline-none
+focus:border-[#67B4B0]
+focus:ring-0"
+
+required>
+
+</div>
+
+<!-- ACCIONES -->
+
+<div class="flex gap-4">
+
+<button
+type="submit"
+
+class="
+btn-main
+px-10
+h-[58px]
+font-semibold">
+
+Guardar
+
+</button>
+
+<a
+href="{{ route('tareas.index') }}"
+
+class="
+h-[58px]
+px-10
+flex
+items-center
+justify-center
+card
+title
+font-semibold">
+
+Cancelar
+
+</a>
+
+</div>
+
+</form>
+
+</div>
+
+@endsection

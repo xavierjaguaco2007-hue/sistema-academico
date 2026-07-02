@@ -1,47 +1,213 @@
 <x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
+<div
+class="
+min-h-screen
+flex
+items-center
+justify-center
+px-6">
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
+<div
+class="
+panel
+w-full
+max-w-[1200px]
+grid
+lg:grid-cols-2
+overflow-hidden">
 
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
+<!-- IZQUIERDA -->
 
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
+<div
+class="
+bg-[#5E5653]
+text-white
+p-16
+flex
+flex-col
+justify-center">
 
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
+<p
+class="
+uppercase
+tracking-[8px]
+text-sm
+text-[#67B4B0]">
 
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-indigo-600 shadow-sm focus:ring-indigo-500 dark:focus:ring-indigo-600 dark:focus:ring-offset-gray-800" name="remember">
-                <span class="ms-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
-            </label>
-        </div>
+Urban Slate
 
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
+</p>
 
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
+<h1
+class="
+text-7xl
+font-black
+mt-6
+leading-none">
+
+Academic
+
+<br>
+
+Portal
+
+</h1>
+
+<p
+class="
+mt-8
+text-gray-300
+leading-8">
+
+Sistema académico moderno para docentes y estudiantes.
+
+</p>
+
+</div>
+
+<!-- DERECHA -->
+
+<div
+class="
+bg-white/45
+backdrop-blur-xl
+p-16">
+
+<h2
+class="
+text-5xl
+font-black
+title">
+
+Iniciar sesión
+
+</h2>
+
+<p
+class="
+subtitle
+mt-4
+mb-10">
+
+Ingresa tus credenciales.
+
+</p>
+
+<form
+method="POST"
+action="{{ route('login') }}">
+
+@csrf
+
+<!-- EMAIL -->
+
+<div class="mb-6">
+
+<input
+type="email"
+name="email"
+
+required
+
+placeholder="Correo electrónico"
+
+class="
+w-full
+h-[60px]
+border
+border-white/50
+bg-white/50
+px-6
+outline-none
+focus:border-[#67B4B0]
+focus:ring-0">
+
+</div>
+
+<!-- PASSWORD -->
+
+<div class="mb-6">
+
+<input
+type="password"
+name="password"
+
+required
+
+placeholder="Contraseña"
+
+class="
+w-full
+h-[60px]
+border
+border-white/50
+bg-white/50
+px-6
+outline-none
+focus:border-[#67B4B0]
+focus:ring-0">
+
+</div>
+
+<!-- REMEMBER -->
+
+<div
+class="
+flex
+justify-between
+items-center
+mb-8">
+
+<label
+class="
+flex
+items-center
+gap-3
+subtitle">
+
+<input
+type="checkbox"
+name="remember">
+
+Recordarme
+
+</label>
+
+@if(Route::has('password.request'))
+
+<a
+href="{{ route('password.request') }}"
+class="text-[#67B4B0]">
+
+¿Olvidaste contraseña?
+
+</a>
+
+@endif
+
+</div>
+
+<!-- BOTON -->
+
+<button
+class="
+btn-main
+w-full
+h-[60px]
+text-lg
+font-bold">
+
+Entrar
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
 </x-guest-layout>

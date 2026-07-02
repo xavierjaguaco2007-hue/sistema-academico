@@ -11,7 +11,7 @@ content="width=device-width, initial-scale=1">
 
 <title>
 
-Urban Slate
+Urban Slate · Docente
 
 </title>
 
@@ -32,9 +32,10 @@ panel
 max-w-[1500px]
 mx-auto
 h-full
-overflow-hidden">
+overflow-hidden
+">
 
-<div class="flex">
+<div class="flex h-full">
 
 <!-- SIDEBAR -->
 
@@ -46,20 +47,29 @@ bg-[#5E5653]
 text-white
 flex
 flex-col
+shrink-0
 ">
 
 <!-- LOGO -->
 
-<div class="px-10 pt-12 pb-10">
+<div
+class="
+px-10
+pt-12
+pb-10
+">
 
 <h1
 class="
 text-5xl
 font-black
-leading-none">
+leading-none
+">
 
 Urban
+
 <br>
+
 Slate
 
 </h1>
@@ -69,7 +79,8 @@ class="
 w-16
 h-[3px]
 bg-[#67B4B0]
-mt-6">
+mt-6
+">
 
 </div>
 
@@ -80,15 +91,16 @@ mt-6">
 <nav
 class="
 flex-1
-px-0
+py-6
 ">
 
 <a
-href="{{ route('estudiante.dashboard') }}"
+href="{{ route('docente.dashboard') }}"
 class="
 menu-item
-{{ request()->routeIs('estudiante.dashboard')
-?'menu-active':'' }}
+{{ request()->routeIs('docente.dashboard')
+? 'menu-active'
+: '' }}
 ">
 
 Dashboard
@@ -96,26 +108,15 @@ Dashboard
 </a>
 
 <a
-href="{{ route('estudiante.tareas') }}"
+href="{{ route('tareas.index') }}"
 class="
 menu-item
-{{ request()->routeIs('estudiante.tareas')
-?'menu-active':'' }}
+{{ request()->routeIs('tareas.*')
+? 'menu-active'
+: '' }}
 ">
 
-Tareas
-
-</a>
-
-<a
-href="{{ route('estudiante.asistente') }}"
-class="
-menu-item
-{{ request()->routeIs('estudiante.asistente')
-?'menu-active':'' }}
-">
-
-Asistente IA
+Gestionar tareas
 
 </a>
 
@@ -127,13 +128,15 @@ Asistente IA
 class="
 p-8
 border-t
-border-white/10">
+border-white/10
+">
 
 <div
 class="
 text-sm
 text-gray-300
-mb-5">
+mb-5
+">
 
 {{ Auth::user()->name }}
 
@@ -148,7 +151,8 @@ action="{{ route('logout') }}">
 <button
 class="
 btn-main
-w-full">
+w-full
+">
 
 Cerrar sesión
 
@@ -165,8 +169,9 @@ Cerrar sesión
 <div
 class="
 flex-1
-h-screen
-overflow-hidden">
+h-full
+overflow-hidden
+">
 
 <!-- TOPBAR -->
 
@@ -174,15 +179,18 @@ overflow-hidden">
 class="
 h-[70px]
 border-b
-border-gray-200
+border-[#D9D9D9]
 flex
 items-center
 justify-end
-px-10">
+px-10
+">
 
 <div
 class="
-text-[#8C9298]">
+text-[#8C9298]
+font-medium
+">
 
 Bienvenido
 
@@ -196,10 +204,11 @@ Bienvenido
 
 <div
 class="
-h-[calc(100vh-70px)]
+h-[calc(100%-70px)]
 overflow-y-auto
 px-10
-py-8">
+py-8
+">
 
 @yield('content')
 

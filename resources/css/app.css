@@ -1,3 +1,177 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ===== URBAN SLATE ADMIN ===== */
+
+body{
+
+background:
+linear-gradient(
+180deg,
+#DCE1E6,
+#C8CFD5
+);
+
+min-height:100vh;
+
+font-family:
+Inter,
+sans-serif;
+
+}
+
+/* PANEL */
+
+.panel{
+
+background:
+rgba(255,255,255,.58);
+
+backdrop-filter:
+blur(16px);
+
+box-shadow:
+0 18px 50px
+rgba(0,0,0,.10);
+
+border:
+1px solid
+rgba(255,255,255,.4);
+
+}
+
+/* CARD */
+
+.card{
+
+background:
+rgba(255,255,255,.45);
+
+backdrop-filter:
+blur(12px);
+
+border:
+1px solid
+rgba(255,255,255,.4);
+
+box-shadow:
+0 10px 30px
+rgba(0,0,0,.05);
+
+border-radius:12px;
+
+}
+
+/* SIDEBAR */
+
+.sidebar{
+
+background:
+rgba(62,64,68,.88);
+
+backdrop-filter:
+blur(20px);
+
+}
+
+/* MENU */
+
+.menu-item{
+
+height:58px;
+
+display:flex;
+
+align-items:center;
+
+padding-left:24px;
+
+border-left:
+3px solid
+transparent;
+
+transition:.25s;
+
+}
+
+.menu-item:hover{
+
+background:
+rgba(255,255,255,.05);
+
+border-left:
+3px solid
+#67B4B0;
+
+}
+
+.menu-active{
+
+background:
+rgba(255,255,255,.04);
+
+border-left:
+3px solid
+#67B4B0;
+
+}
+
+/* PANEL DERECHO */
+
+.info-card{
+
+background:
+rgba(255,255,255,.72);
+
+}
+
+/* ICONOS */
+
+.icon{
+
+color:
+#67B4B0;
+
+}
+
+/* TITULOS */
+
+.title{
+
+color:
+#474443;
+
+font-weight:800;
+
+}
+
+.subtitle{
+
+color:
+#8C9298;
+
+}
+
+/* BOTONES */
+
+.btn-main{
+
+background:
+#67B4B0;
+
+color:white;
+
+transition:.2s;
+
+}
+
+.btn-main:hover{
+
+transform:
+translateY(-1px);
+
+background:
+#59A29E;
+
+}

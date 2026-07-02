@@ -2,90 +2,254 @@
 
 @section('content')
 
-<div class="mb-8">
+<!-- HEADER -->
 
-    <h1 class="text-4xl font-bold text-[#5E5653]">
+<div class="mb-10">
+
+    <p class="uppercase tracking-[6px] text-sm text-[#7B7F8A]">
+
+        Tareas
+
+    </p>
+
+    <h1 class="text-5xl font-black text-[#5E5653] mt-2">
+
         Tareas Académicas
+
     </h1>
 
-    <p class="text-[#7B7F8A] mt-2">
-        Consulta y entrega tus actividades académicas
+    <p class="text-[#7B7F8A] mt-3">
+
+        Consulta y entrega tus actividades.
+
     </p>
 
 </div>
 
-<div class="flex flex-wrap gap-6">
+<!-- LISTA -->
 
-@foreach($tareas as $tarea)
+<div class="space-y-5">
 
-    <div class="bg-[#F5F3F4] rounded-3xl shadow-xl p-8 border-l-8 border-[#6B7C98] hover:scale-[1.01] transition duration-300">
+@forelse($tareas as $tarea)
 
-        <!-- HEADER -->
-        <div class="flex justify-between items-start">
+<div
+class="
+glass
+rounded-[32px]
+px-8
+py-7">
 
-            <div>
+<div
+class="
+grid
+xl:grid-cols-[1fr_240px]
+gap-8
+items-center">
 
-                <h2 class="text-3xl font-bold text-[#5E5653]">
-                    {{ $tarea->titulo }}
-                </h2>
+<!-- IZQUIERDA -->
 
-                <p class="text-[#7B7F8A] mt-3 leading-relaxed">
-                    {{ $tarea->descripcion }}
-                </p>
+<div
+class="
+flex
+items-start
+gap-6">
 
-            </div>
+<!-- ICONO -->
 
-            <div class="text-5xl">
-                📚
-            </div>
+<div class="icon-box shrink-0">
 
-        </div>
+<svg
+xmlns="http://www.w3.org/2000/svg"
+fill="none"
+viewBox="0 0 24 24"
+stroke-width="1.7"
+stroke="currentColor"
+class="w-7 h-7">
 
-        <!-- FECHA -->
-        <div class="mt-6 bg-[#E9E6E7] rounded-2xl p-4">
+<path
+stroke-linecap="round"
+stroke-linejoin="round"
+d="M12 6.042A8.967 8.967 0 006 3.75a8.967 8.967 0 00-6 2.292v13.5A8.967 8.967 0 016 17.25a8.967 8.967 0 016 2.292m0-13.5A8.967 8.967 0 0118 3.75a8.967 8.967 0 016 2.292v13.5A8.967 8.967 0 0018 17.25a8.967 8.967 0 00-6 2.292"/>
 
-            <p class="font-bold text-[#5E5653]">
-                📅 Fecha de entrega
-            </p>
+</svg>
 
-            <p class="text-[#7B7F8A] mt-1">
-                {{ $tarea->fecha_entrega }}
-            </p>
+</div>
 
-        </div>
+<!-- TEXTO -->
 
-        <!-- BOTÓN -->
-        <div class="mt-6">
+<div class="flex-1">
 
-            @if(in_array($tarea->id, $entregas))
+<h2
+class="
+text-2xl
+font-black
+text-[#5E5653]
+leading-tight">
 
-                <a href="#"
-                   class="bg-[#AB978C] hover:bg-[#6B7C98]
-                          text-white px-6 py-3 rounded-2xl
-                          inline-block transition duration-300 shadow-lg">
+{{ $tarea->titulo }}
 
-                    ✅ Ver entrega
+</h2>
 
-                </a>
+<p
+class="
+mt-3
+text-[#7B7F8A]
+leading-7">
 
-            @else
+{{ $tarea->descripcion }}
 
-                <a href="{{ route('entregas.create', $tarea->id) }}"
-                   class="bg-[#6B7C98] hover:bg-[#7B7F8A]
-                          text-white px-6 py-3 rounded-2xl
-                          inline-block transition duration-300 shadow-lg">
+</p>
 
-                    📤 Entregar tarea
+</div>
 
-                </a>
+</div>
 
-            @endif
+<!-- DERECHA -->
 
-        </div>
+<div
+class="
+space-y-4">
 
-    </div>
+<div
+class="
+soft-panel
+p-5">
 
-@endforeach
+<p
+class="
+text-xs
+uppercase
+tracking-[3px]
+text-[#7B7F8A]">
+
+Fecha entrega
+
+</p>
+
+<p
+class="
+mt-2
+text-2xl
+font-black
+text-[#AB978C]">
+
+{{ $tarea->fecha_entrega }}
+
+</p>
+
+</div>
+
+@if(in_array($tarea->id,$entregas))
+
+<a
+href="#"
+
+class="
+block
+text-center
+py-4
+rounded-[22px]
+bg-[#AB978C]/90
+backdrop-blur-xl
+text-white
+font-bold
+hover:opacity-90
+transition">
+
+Ver entrega
+
+</a>
+
+@else
+
+<a
+href="{{ route('entregas.create',$tarea->id) }}"
+
+class="
+block
+text-center
+py-4
+rounded-[22px]
+bg-[#6B7C98]/90
+backdrop-blur-xl
+text-white
+font-bold
+hover:opacity-90
+transition">
+
+Entregar tarea
+
+</a>
+
+@endif
+
+</div>
+
+</div>
+
+</div>
+
+@empty
+
+<div
+class="
+glass
+rounded-[32px]
+p-16
+text-center">
+
+<div
+class="
+mx-auto
+w-24
+h-24
+rounded-full
+bg-white/50
+backdrop-blur-xl
+flex
+items-center
+justify-center">
+
+<svg
+xmlns="http://www.w3.org/2000/svg"
+fill="none"
+viewBox="0 0 24 24"
+stroke-width="1.6"
+stroke="#7B7F8A"
+class="w-10 h-10">
+
+<path
+stroke-linecap="round"
+stroke-linejoin="round"
+d="M3 7.5A2.25 2.25 0 015.25 5.25h13.5A2.25 2.25 0 0121 7.5v9A2.25 2.25 0 0118.75 18.75H5.25A2.25 2.25 0 013 16.5v-9z"/>
+
+</svg>
+
+</div>
+
+<h2
+class="
+mt-8
+text-3xl
+font-black
+text-[#5E5653]">
+
+No hay tareas
+
+</h2>
+
+<p
+class="
+mt-3
+text-[#7B7F8A]">
+
+Las tareas aparecerán aquí.
+
+</p>
+
+</div>
+
+@endforelse
 
 </div>
 

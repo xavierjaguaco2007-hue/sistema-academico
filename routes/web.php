@@ -10,7 +10,25 @@ use App\Http\Controllers\AIController;
 use Illuminate\Support\Facades\Http;
 
 Route::get('/', function () {
-    return view('welcome');
+
+    if(auth()->check()){
+
+        return match(auth()->user()->rol){
+
+            'docente'
+                => redirect()->route('docente.dashboard'),
+
+            'estudiante'
+                => redirect()->route('estudiante.dashboard'),
+
+            default
+                => redirect('/login')
+        };
+
+    }
+
+    return redirect('/login');
+
 });
 
 Route::get('/dashboard', function () {
